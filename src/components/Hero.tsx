@@ -15,13 +15,12 @@ const Hero = () => {
         <Container>
           <div className="flex flex-wrap">
             <div className="flex flex-col text-center md:text-left items-center md:items-start justify-center md:pr-2 py-14 w-full basis-full md:basis-7/12">
-              <SectionRibbonTitle>Welcome</SectionRibbonTitle>
+              <SectionRibbonTitle className="from-[#1e1b24] to-[#19181f]">
+                Welcome
+              </SectionRibbonTitle>
               <h1 className="text-6xl mb-5 font-bold leading-[1.25] text-white">
                 Benjoe — a Fullstack Web Developer
               </h1>
-              {/* <p className="text-6xl font-bold mb-10 leading-10">
-                a Full-stack Web Developer
-              </p> */}
               <p className="mb-10 text-center md:text-left w-full md:w-11/12 lg:w-8/12 leading-7 text-[#c2c6dd] text-xl">
                 I want to build things that will make a positive difference.
               </p>

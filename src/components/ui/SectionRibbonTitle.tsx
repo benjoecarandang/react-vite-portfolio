@@ -5,9 +5,17 @@ interface SectionRibbonTitlteProps {
   className?: string;
 }
 
-const SectionRibbonTitle = ({ children }: SectionRibbonTitlteProps) => {
+const SectionRibbonTitle = ({
+  children,
+  className
+}: SectionRibbonTitlteProps) => {
+  const resolvedClassName =
+    className === null ? "from-[#1e1b24] to-[#19181f]" : className;
+
   return (
-    <p className="rounded-full px-6 py-2 mb-5 text-white font-semibold text-sm rounded-bl-none bg-gradient-to-r from-[#1e1b24] to-[#19181f] shadow-xl">
+    <p
+      className={`rounded-full px-6 py-2 mb-5 text-white font-semibold text-sm rounded-bl-none bg-gradient-to-r shadow-xl ${resolvedClassName}`}
+    >
       {children}
     </p>
   );
