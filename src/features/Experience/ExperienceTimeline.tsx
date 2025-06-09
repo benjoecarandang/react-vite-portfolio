@@ -1,6 +1,6 @@
 
-import Container from "../ui/Container";
-import SectionHeadings from "../ui/SectionHeadings";
+import Container from "@/components/ui/Container";
+import SectionHeadings from "@/components/ui/SectionHeadings";
 import ExperienceItem from "./ExperienceItem";
 import { experienceData } from "./experienceData"; 
 

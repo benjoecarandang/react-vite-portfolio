@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Container from "../ui/Container";
-import SectionHeadings from "../ui/SectionHeadings";
-import TriangleBackground from "../ui/TriangleBackground";
-import { projectData } from "./projectData";
+import Container from "@/components/ui/Container";
+import SectionHeadings from "@/components/ui/SectionHeadings";
+import TriangleBackground from "@/components/ui/TriangleBackground";
 import TabSelector from "./TabSelector";
 import ProjectItem from "./ProjectItem";
+import { projectData } from "./projectData";
 
 export default function Projects() {
   const [activeTab, setActiveTab] = useState("All");

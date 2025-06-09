@@ -1,8 +1,8 @@
 import { type FC } from "react";
-import Container from "./ui/Container";
-import SectionRibbonTitle from "./ui/SectionRibbonTitle";
-import HeroPicture from "../assets/HeroPicture1.jpg";
-import TriangleOverlay from "./ui/TirangleOverlay";
+import Container from "@/components/ui/Container";
+import SectionRibbonTitle from "@/components/ui/SectionRibbonTitle";
+import HeroPicture from "@/assets/HeroPicture1.jpg";
+import TriangleOverlay from "@/components/ui/TirangleOverlay";
 
 const Hero: FC = () => {
   const handleDownloadCV = () => {

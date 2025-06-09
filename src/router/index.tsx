@@ -1,13 +1,18 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "../App";
+import { useRoutes } from "react-router-dom";
+import { Suspense, memo } from "react";
+import MainLayout from "@/layouts/MainLayout";
+import { routes } from "./RouteConfig";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />
-  }
-]);
+const AppRoutes = memo(() => {
+  const element = useRoutes([
+    {
+      path: "/",
+      element: <MainLayout />,
+      children: routes
+    }
+  ]);
 
-export default function AppRouter() {
-  return <RouterProvider router={router} />;
-}
+  return <Suspense fallback={<div>Loading...</div>}>{element}</Suspense>;
+});
+
+export default AppRoutes;
