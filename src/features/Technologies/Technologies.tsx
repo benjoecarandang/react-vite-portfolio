@@ -25,7 +25,7 @@ const AboutMe = () => {
                 key={tech.name}
                 className="flex items-center gap-2 px-4 py-2 bg-[#23202a] text-white rounded-lg text-sm font-medium"
               >
-                <img src={tech.icon} />
+                <img className="w-8 h-8" src={tech.icon} />
                 <span>{tech.name}</span>
               </div>
             ))}

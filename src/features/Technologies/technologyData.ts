@@ -9,6 +9,7 @@ import GitLogo from "@/assets/git.svg";
 import MysqlLogo from "@/assets/mysql.svg";
 import WordpressLogo from "@/assets/wordpress-white.svg";
 import JavaLogo from "@/assets/java.svg";
+import TypescriptLogo from "@/assets/typescript.png";
 
 
 type Technology = {
@@ -27,5 +28,6 @@ export const technologyData: Technology[] = [
   { name: "Git", icon: GitLogo },
   { name: "MySQL", icon: MysqlLogo },
   { name: "Wordpress", icon: WordpressLogo },
-  { name: "Java", icon: JavaLogo }
+  { name: "Java", icon: JavaLogo },
+  { name: "Typescript", icon: TypescriptLogo }
 ];

@@ -1,21 +1,13 @@
-import { useState } from "react";
+import React from "react";
 import Container from "@/components/ui/Container";
 import SectionHeadings from "@/components/ui/SectionHeadings";
 import TriangleBackground from "@/components/ui/TriangleBackground";
-import TabSelector from "./TabSelector";
 import ProjectItem from "./ProjectItem";
-import { projectData } from "./projectData";
+import { projects } from "./projectData";
 
-export default function Projects() {
-  const [activeTab, setActiveTab] = useState("All");
-
-  const filteredProjects =
-    activeTab === "All"
-      ? projectData
-      : projectData.filter((project) => project.category.includes(activeTab));
-
+const Projects: React.FC = () => {
   return (
-    <section className=" bg-[#1e1b24] ">
+    <section className="bg-[#1e1b24]">
       <Container>
         <SectionHeadings
           tagline="Projects"
@@ -28,12 +20,12 @@ export default function Projects() {
           </p>
         </SectionHeadings>
 
-        <TabSelector activeTab={activeTab} onChange={setActiveTab} />
-
-        <ProjectItem projects={filteredProjects} />
+        <ProjectItem projects={projects} />
       </Container>
 
       <TriangleBackground bgColor="#19181f" revert={true} />
     </section>
   );
-}
+};
+
+export default Projects; 

@@ -10,7 +10,6 @@ const Home = () => {
       <Hero />
       <Technologies />
       <Projects />
-      <ProjectGallery />
       <ExperienceTimeline />
     </>
   );
