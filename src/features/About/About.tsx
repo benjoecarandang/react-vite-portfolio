@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "@/components/ui/Container";
 import SectionHeadings from "@/components/ui/SectionHeadings";
-import { FaBrain, FaRobot, FaChartLine } from "react-icons/fa";
+import { FaBrain, FaRobot } from "react-icons/fa";
 
 const About: React.FC = () => {
   const skills = [

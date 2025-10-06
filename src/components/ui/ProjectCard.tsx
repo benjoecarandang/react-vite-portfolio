@@ -1,5 +1,4 @@
-import autoAnimate from "@formkit/auto-animate";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Container from "./Container";
 import SectionHeadings from "./SectionHeadings";
 import { cn } from "../../lib/utils/cn";
