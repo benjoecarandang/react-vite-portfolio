@@ -1,7 +1,7 @@
-import DiversifyLogo from "@/assets/diversify.jpg";
-import PILogo from "@/assets/PI.svg";
-import ACNLogo from "@/assets/ACN.png";
-import ENRALogo from "@/assets/ENRA.png";
+const DiversifyLogo = "/assets/diversify.jpg";
+const PILogo = "/assets/PI.svg";
+const ACNLogo = "/assets/ACN.png";
+const ENRALogo = "/assets/ENRA.png";
 
 type Experience = {
   title: string;

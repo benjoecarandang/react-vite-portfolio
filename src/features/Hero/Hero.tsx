@@ -2,7 +2,7 @@ import { type FC } from "react";
 import { Link } from "react-router-dom";
 import Container from "@/components/ui/Container";
 import SectionRibbonTitle from "@/components/ui/SectionRibbonTitle";
-import HeroPicture from "@/assets/HeroPicture1.jpg";
+const HeroPicture = "/assets/HeroPicture1.jpg";
 import TriangleOverlay from "@/components/ui/TirangleOverlay";
 
 const Hero: FC = () => {

@@ -1,5 +1,5 @@
-import PokemonProjectImage from "@/assets/Project_Pokemon.jpg";
-import GrowAGardenToolsLogo from "@/assets/growagardentools.png";
+const PokemonProjectImage = "/assets/Project_Pokemon.jpg";
+const GrowAGardenToolsLogo = "/assets/growagardentools.png";
 
 export interface Project {
   id: number;

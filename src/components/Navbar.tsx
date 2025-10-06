@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Container from "@/components/ui/Container";
-import Logo from "@/assets/logo.png";
+const Logo = "/assets/Logo.png";
 import { cn } from "@/lib/utils/cn";
 
 const navItems = [

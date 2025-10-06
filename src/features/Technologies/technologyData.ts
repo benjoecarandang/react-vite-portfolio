@@ -1,11 +1,11 @@
-import LaravelLogo from "@/assets/laravel.svg";
-import TailwindLogo from "@/assets/tailwind.svg";
-import BootstrapLogo from "@/assets/bootstrap.png";
-import PhpLogo from "@/assets/php.svg";
-import GitLogo from "@/assets/git.svg";
-import MysqlLogo from "@/assets/mysql.svg";
-import WordpressLogo from "@/assets/wordpress-white.svg";
-import JavaLogo from "@/assets/java.svg";
+const LaravelLogo = "/assets/laravel.svg";
+const TailwindLogo = "/assets/tailwind.svg";
+const BootstrapLogo = "/assets/bootstrap.png";
+const PhpLogo = "/assets/php.svg";
+const GitLogo = "/assets/git.svg";
+const MysqlLogo = "/assets/mysql.svg";
+const WordpressLogo = "/assets/wordpress-white.svg";
+const JavaLogo = "/assets/java.svg";
 
 type Technology = {
   name: string;
