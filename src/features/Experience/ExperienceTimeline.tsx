@@ -6,7 +6,7 @@ import { experienceData } from "./experienceData";
 
 const ExperienceTimeline = () => {
   return (
-    <section className="pb-0">
+    <section className="my-20">
       <Container>
         <SectionHeadings tagline="Experiences" title="My Resume">
           <p>

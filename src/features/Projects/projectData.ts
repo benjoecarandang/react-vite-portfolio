@@ -1,4 +1,5 @@
 import PokemonProjectImage from "@/assets/Project_Pokemon.jpg";
+import GrowAGardenToolsLogo from "@/assets/growagardentools.png";
 
 export interface Project {
   id: number;
@@ -6,6 +7,7 @@ export interface Project {
   description: string;
   imageUrl: string;
   tags: string[];
+  projectUrl?: string;
   caseStudy?: {
     overview: string;
     challenge: string;
@@ -13,161 +15,146 @@ export interface Project {
     technologies: string[];
     features: string[];
     learnings: string[];
-  };
+  } | null;
 }
 
 export const projects: Project[] = [
   {
-    id: 1,
-    title: "E-commerce Platform",
-    description:
-      "A full-featured online shopping platform with payment integration.",
-    imageUrl: "https://placehold.co/600x400/2563eb/white?text=E-commerce",
-    tags: ["React", "Node.js", "MongoDB"],
-    caseStudy: {
-      overview: "A comprehensive e-commerce platform designed to provide a seamless shopping experience. The project focused on creating a user-friendly interface while maintaining robust backend functionality.",
-      challenge: "The main challenges included implementing secure payment processing, managing real-time inventory, and ensuring a smooth user experience across different devices.",
-      solution: "We implemented a microservices architecture with React for the frontend and Node.js for the backend. MongoDB was used for flexible data storage, and we integrated Stripe for secure payment processing.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "Redux", "Express"],
-      features: [
-        "Secure payment processing",
-        "Real-time inventory management",
-        "User authentication and authorization",
-        "Responsive design",
-        "Order tracking system"
-      ],
-      learnings: [
-        "Importance of proper error handling in payment systems",
-        "Optimizing database queries for better performance",
-        "Implementing effective caching strategies"
-      ]
-    }
-  },
-  {
-    id: 2,
-    title: "Portfolio Website",
-    description: "A responsive portfolio website showcasing creative work.",
-    imageUrl: "https://placehold.co/600x400/7c3aed/white?text=Portfolio",
-    tags: ["HTML", "CSS", "JavaScript"],
-    caseStudy: {
-      overview: "A modern portfolio website designed to showcase creative work in an engaging and interactive way.",
-      challenge: "Creating a unique and memorable user experience while maintaining performance and accessibility.",
-      solution: "Implemented a custom design system with smooth animations and transitions, optimized for performance.",
-      technologies: ["HTML5", "CSS3", "JavaScript", "GSAP", "Webpack"],
-      features: [
-        "Interactive animations",
-        "Responsive design",
-        "Project showcase",
-        "Contact form",
-        "Blog section"
-      ],
-      learnings: [
-        "Optimizing animations for performance",
-        "Implementing accessible design patterns",
-        "Managing complex state in vanilla JavaScript"
-      ]
-    }
-  },
-  {
     id: 3,
-    title: "Task Management App",
+    title: "Tenzies",
     description:
-      "A productivity app for organizing daily tasks and projects.",
-    imageUrl: "https://placehold.co/600x400/059669/white?text=Task+App",
-    tags: ["React", "Firebase", "Tailwind"],
-    caseStudy: {
-      overview: "A comprehensive task management application designed to help users organize their work and personal projects effectively.",
-      challenge: "Creating an intuitive interface for complex task management while ensuring real-time synchronization across devices.",
-      solution: "Built a React application with Firebase backend, implementing real-time updates and offline capabilities.",
-      technologies: ["React", "Firebase", "Tailwind CSS", "Redux", "Firestore"],
-      features: [
-        "Real-time task updates",
-        "Project organization",
-        "Team collaboration",
-        "Progress tracking",
-        "Deadline management"
-      ],
-      learnings: [
-        "Implementing real-time features with Firebase",
-        "Managing complex state in React applications",
-        "Optimizing offline functionality"
-      ]
-    }
+      "A simple game that rolls the dice until all dice are the same.",
+    imageUrl:
+      "https://pbs.twimg.com/media/FYhFPnPUYAAMlYe?format=jpg&name=900x900",
+    tags: ["React", "Node.js", "MongoDB"],
+    caseStudy: null
   },
   {
     id: 4,
-    title: "Pokedex",
-    description: "Pokedex is a web application that allows you to search for Pokémon by name and view their details.",
-    imageUrl: PokemonProjectImage,
-    tags: ["API", "JavaScript", "CSS"],
+    title: "MyDiversify App",
+    description:
+      "An electron app that connects into MyDiversify API. It captures mouse and keyboard clicks. It records the task activity of the employee.",
+    imageUrl:
+      "https://pbs.twimg.com/media/FYhkmvxUYAE1XNL?format=png&name=900x900",
+    tags: ["Electron", "JavaScript", "HTML5", "REST API", "Screenshot Capture", "System Monitoring"],
     caseStudy: {
-      overview: "A modern Pokedex application that allows users to explore and learn about different Pokémon. The project focused on creating an engaging user interface while efficiently handling API data.",
-      challenge: "Managing large amounts of data from the Pokémon API while maintaining smooth performance and implementing effective search functionality.",
-      solution: "Implemented efficient data fetching and caching strategies, along with a responsive design that works well on all devices.",
-      technologies: ["JavaScript", "HTML5", "CSS3", "Pokemon API", "Local Storage"],
+      overview:
+        "MyDiversify App is a comprehensive time tracking and employee monitoring solution built during the COVID-19 pandemic to help companies track remote work activities without relying on expensive third-party services. The application was developed as an in-house alternative to costly tracking solutions, saving the company significant monthly expenses while providing full control over employee data and privacy.",
+      challenge:
+        "During the pandemic lockdown, companies needed to track remote employee activities but faced high costs from third-party tracking services (approximately $10 per employee per month). The company needed a cost-effective, in-house solution that could capture screenshots, monitor keyboard and mouse activity, and integrate with their existing API infrastructure. The solution needed to be cross-platform and provide an alternative login method to their web application.",
+      solution:
+        "Developed a cross-platform Electron application that connects to the MyDiversify API, providing comprehensive employee activity tracking. The app captures screenshots at configurable intervals, tracks mouse clicks and keyboard presses, and sends all data to the web application for analysis. The solution also serves as an alternative login method, reducing dependency on the web platform. Built with 90% solo development effort, the application successfully replaced expensive third-party tracking services.",
+      technologies: [
+        "Electron",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Node.js",
+        "REST API",
+        "Screenshot Capture",
+        "System Monitoring"
+      ],
       features: [
-        "Pokemon search functionality",
-        "Detailed Pokemon information",
-        "Type effectiveness calculator",
-        "Favorite Pokemon list",
-        "Responsive design"
+        "Cross-platform desktop application (Windows, macOS)",
+        "Configurable screenshot capture with admin-controlled timing",
+        "Real-time mouse click and keyboard press tracking",
+        "API integration with MyDiversify backend",
+        "Alternative login/time-in functionality",
+        "Data synchronization with web application",
+        "Admin dashboard for viewing employee activities",
+        "Privacy-focused local data processing"
       ],
       learnings: [
-        "Working with external APIs",
-        "Implementing efficient search algorithms",
-        "Managing application state",
-        "Creating responsive layouts"
+        "Electron provides excellent cross-platform capabilities for desktop applications",
+        "Building in-house solutions can significantly reduce operational costs",
+        "System-level monitoring requires careful consideration of user privacy",
+        "API integration is crucial for seamless data flow between applications",
+        "Solo development projects can be highly successful with proper planning",
+        "Cost savings from avoiding third-party subscriptions can be substantial",
+        "Employee monitoring tools must balance productivity tracking with privacy concerns"
       ]
     }
   },
   {
     id: 5,
-    title: "Social Media Analytics",
-    description: "Dashboard for tracking engagement across platforms.",
-    imageUrl: "https://placehold.co/600x400/d946ef/white?text=Analytics",
+    title: "Rewards Portal",
+    description:
+      "Developed a Rewards Portal used by client to reward their staff.",
+    imageUrl:
+      "https://pbs.twimg.com/media/FYr48FlVsAEKzCE?format=jpg&name=large",
+    tags: ["React", "Firebase", "Tailwind"],
+    caseStudy: null
+  },
+  {
+    id: 6,
+    title: "Pokedex",
+    description:
+      "Pokedex is a web application that allows you to search for Pokémon by name and view their details.",
+    imageUrl: PokemonProjectImage,
+    tags: ["Poke API", "React JS", "Tailwind CSS"],
+    caseStudy: null
+  },
+  {
+    id: 7,
+    title: "Virtuallio Time Tracker",
+    description:
+      "An electron app that capture screenshots, mouse and keyboard clicks, and determines user productivity.",
+    imageUrl:
+      "https://pbs.twimg.com/media/FYguXiNUIAIDeTj?format=png&name=medium",
     tags: ["React", "Chart.js", "Node.js"],
+    caseStudy: null
+  }
+];
+
+export const latestProjects: Project[] = [
+  {
+    id: 1,
+    title: "Grow a Garden Tools",
+    description:
+      "A Next JS and Tailwind CSS website for Grow a Garden Roblox Game.",
+    imageUrl: GrowAGardenToolsLogo,
+    tags: ["Next JS", "Tailwind CSS", "AdSense"],
+    projectUrl: "https://growagardentools.org",
     caseStudy: {
-      overview: "A comprehensive analytics dashboard for tracking social media engagement across multiple platforms.",
-      challenge: "Processing and visualizing large amounts of social media data in real-time while maintaining performance.",
-      solution: "Implemented a scalable architecture with efficient data processing and real-time updates using WebSocket.",
-      technologies: ["React", "Chart.js", "Node.js", "WebSocket", "MongoDB"],
+      overview:
+        "Grow a Garden Tools is a comprehensive web application built to support the popular Roblox game 'Grow a Garden', which achieved over 20 million concurrent users. The project emerged from identifying gaps in the game's functionality and creating external tools to enhance the player experience.",
+      challenge:
+        "While playing Grow a Garden, I noticed several features required manual computation that weren't available in-game. The game lacked essential calculators and tools that players needed for optimal gameplay. Additionally, as the user base grew, hosting costs on Vercel's free tier became unsustainable, requiring a monetization strategy.",
+      solution:
+        "Developed a pure frontend application using Next.js and Tailwind CSS to create a suite of calculators and tools. Implemented Google AdSense for monetization to support hosting costs and continued development. Built a comprehensive feature set including multiple calculators, a design gallery, and a blog section to provide ongoing value to the gaming community.",
+      technologies: [
+        "Next.js",
+        "Tailwind CSS",
+        "Google AdSense",
+        "Vercel",
+        "React",
+        "TypeScript"
+      ],
       features: [
-        "Real-time analytics",
-        "Custom dashboard creation",
-        "Data export functionality",
-        "Automated reporting",
-        "Multi-platform integration"
+        "Pet Weight Calculator",
+        "Crop Value Calculator", 
+        "Pet Ability Calculator",
+        "Drop Chance Calculator",
+        "Garden Design Gallery",
+        "Blog Page with gaming tips",
+        "Responsive design for all devices",
+        "SEO optimization for discoverability"
       ],
       learnings: [
-        "Working with real-time data",
-        "Implementing complex data visualizations",
-        "Optimizing database queries for analytics"
+        "Identifying market gaps in gaming communities can lead to successful side projects",
+        "Monetization strategies are crucial for sustaining free-tier applications",
+        "Social media marketing can significantly boost user acquisition",
+        "Regular feature updates and maintenance are key to user retention",
+        "Understanding your target audience's pain points drives product development"
       ]
     }
   },
   {
-    id: 6,
-    title: "Fitness Tracker",
-    description: "Mobile app for tracking workouts and nutrition.",
-    imageUrl: "https://placehold.co/600x400/ec4899/white?text=Fitness",
-    tags: ["React Native", "Firebase"],
-    caseStudy: {
-      overview: "A mobile application designed to help users track their fitness journey, including workouts and nutrition.",
-      challenge: "Creating an intuitive mobile interface while implementing complex tracking features and data visualization.",
-      solution: "Developed a React Native application with Firebase backend, focusing on user experience and data accuracy.",
-      technologies: ["React Native", "Firebase", "Redux", "Chart.js", "Expo"],
-      features: [
-        "Workout tracking",
-        "Nutrition logging",
-        "Progress visualization",
-        "Goal setting",
-        "Social sharing"
-      ],
-      learnings: [
-        "Mobile-first development",
-        "Implementing complex animations",
-        "Managing offline data synchronization"
-      ]
-    }
+    id: 2,
+    title: "Nimble",
+    description: "A MERN Stack website created for online barber booking.",
+    imageUrl: "https://placehold.co/600x400/7c3aed/white?text=Portfolio",
+    tags: ["React JS", "Express JS", "Tailwind CSS"],
+    caseStudy: null
   }
-]; 
+];

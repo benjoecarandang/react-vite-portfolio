@@ -1,12 +1,13 @@
 import { useParams, useNavigate } from "react-router-dom";
 import Container from "@/components/ui/Container";
-import { projects } from "../Projects/projectData";
+import { projects, latestProjects } from "../Projects/projectData";
 import { ArrowLeft } from "lucide-react";
 
 const CaseStudyDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const project = projects.find((p) => p.id === Number(id));
+  const allProjects = [...projects, ...latestProjects];
+  const project = allProjects.find((p) => p.id === Number(id));
 
   if (!project || !project.caseStudy) {
     return (
@@ -29,7 +30,7 @@ const CaseStudyDetail = () => {
   const { caseStudy } = project;
 
   return (
-    <div className="min-h-screen bg-[#1e1b24] text-white py-10">
+    <div className="min-h-screen text-white py-10 pb-20 mx-4 md:mx-8 lg:mx-16 rounded-2xl  bg-[#23202A] mb-8">
       <Container>
         <button
           onClick={() => navigate("/case-study")}
@@ -55,7 +56,7 @@ const CaseStudyDetail = () => {
           <img
             src={project.imageUrl}
             alt={project.title}
-            className="w-full h-[400px] object-cover rounded-xl shadow-lg"
+            className="w-full rounded-xl"
           />
         </div>
 

@@ -21,7 +21,7 @@ export const experienceData: Experience[] = [
     position: "left",
     description:
       "Developed and maintained web applications using PHP and JavaScript.",
-    period: "2016 - 2017",
+    period: "June 2016 - August 2017",
     width: "w-24"
   },
   {
@@ -31,7 +31,7 @@ export const experienceData: Experience[] = [
     position: "right",
     description:
       "Developed and maintained web applications using PHP and JavaScript.",
-    period: "2016 - 2017",
+    period: "October 2017 - December 2018",
     width: "w-12"
   },
   {
@@ -42,7 +42,7 @@ export const experienceData: Experience[] = [
     description:
       "Developed and maintained web applications using PHP and JavaScript.",
 
-    period: "2016 - 2017"
+    period: "May 2019 - September 2022"
   },
   {
     title: "Custom Software Engineering Sr Analyst",
@@ -51,6 +51,6 @@ export const experienceData: Experience[] = [
     position: "right",
     description:
       "Developed and maintained web applications using PHP and JavaScript.",
-    period: "2016 - 2017"
+    period: "October 2022 - Present"
   }
 ];
