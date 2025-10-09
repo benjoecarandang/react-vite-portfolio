@@ -1,39 +1,99 @@
-import { useState } from "react";
+import React from "react";
 import Container from "@/components/ui/Container";
 import SectionHeadings from "@/components/ui/SectionHeadings";
-import TriangleBackground from "@/components/ui/TriangleBackground";
-import TabSelector from "./TabSelector";
 import ProjectItem from "./ProjectItem";
-import { projectData } from "./projectData";
+import { projects, latestProjects } from "./projectData";
+import { Link } from "react-router-dom";
 
-export default function Projects() {
-  const [activeTab, setActiveTab] = useState("All");
-
-  const filteredProjects =
-    activeTab === "All"
-      ? projectData
-      : projectData.filter((project) => project.category.includes(activeTab));
+const Projects: React.FC = () => {
+  // Get the latest 2 projects for the featured section
+  const latestProjectsData = latestProjects;
+  const allProjects = projects;
 
   return (
-    <section className=" bg-[#1e1b24] ">
+    <section className="bg-[#1e1b24] pt-20 relative overflow-hidden">
+      {/* Subtle gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 pointer-events-none" />
+      
       <Container>
         <SectionHeadings
-          tagline="Projects"
-          title="I create digital products that help you get ahead"
+          tagline="Portfolio"
+          title="Latest Projects"
           className="text-left !items-start !justify-start"
         >
           <p>
-            From fresh ideas to fully-realized designs, we cover every aspect of
-            your digital presence.
+            Here's my most recent work that showcases my skills in full-stack development, 
+            UI/UX design, and problem-solving.
           </p>
         </SectionHeadings>
 
-        <TabSelector activeTab={activeTab} onChange={setActiveTab} />
+        {/* Featured Latest Projects */}
+        <div className="mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto">
+            {latestProjectsData.map((project) => (
+              <div key={project.id} className="group bg-white/5 hover:bg-white/10 transition-all duration-300 rounded-xl overflow-hidden border border-white/10 hover:border-white/20">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 mb-4 text-base leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-3 mb-4">
+                    {project.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="px-4 py-2 bg-white/10 text-white/90 text-sm font-medium rounded-full border border-white/20 group-hover:border-blue-400/30 transition-all duration-300 backdrop-blur-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex gap-3">
+                    {project.projectUrl && (
+                      <a
+                        href={project.projectUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-full transition-all duration-300 hover:scale-105"
+                      >
+                        Visit Project
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    )}
+                    <Link
+                      to={`/case-study/${project.id}`}
+                      className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition-colors"
+                    >
+                      View Case Study
+                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-        <ProjectItem projects={filteredProjects} />
+        <ProjectItem projects={allProjects} />
       </Container>
-
-      <TriangleBackground bgColor="#19181f" revert={true} />
     </section>
   );
-}
+};
+
+export default Projects; 

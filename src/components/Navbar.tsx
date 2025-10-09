@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Container from "@/components/ui/Container";
-import Logo from "@/assets/logo.png";
+const Logo = "/assets/Logo.png";
 import { cn } from "@/lib/utils/cn";
 
 const navItems = [
@@ -43,12 +43,14 @@ const Navbar = () => {
                   ))}
                 </div>
 
-                <a
+                {/* <a
                   href="mailto:benjoe.carandang@gmail.com"
                   className="w-32 bg-white px-7 py-3 rounded-full text-black font-bold shadow-sm text-center"
                 >
                   Let's talk
-                </a>
+                </a> */}
+
+                <div></div>
               </div>
             </div>
           </div>
