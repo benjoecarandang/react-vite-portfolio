@@ -1,20 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Container from "@/components/ui/Container";
 import SectionHeadings from "@/components/ui/SectionHeadings";
 import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from "react-icons/fa";
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
+    title: "",
     message: ""
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // EmailJS configuration
+      const result = await emailjs.sendForm(
+        'service_gzxlp5j', // Your EmailJS service ID
+        'template_yxrekhe', // Your EmailJS template ID
+        formRef.current!,
+        'DOo80TmH7yoVRmO2Z' // Your EmailJS public key
+      );
+      
+      console.log('Email sent successfully:', result.text);
+      setSubmitStatus('success');
+      setFormData({ name: "", email: "", title: "", message: "" });
+      
+      // Auto-hide success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      setSubmitStatus('error');
+      
+      // Auto-hide error message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -117,7 +151,7 @@ const Contact: React.FC = () => {
             <h3 className="text-2xl font-bold text-white mb-6">
               Send a Message
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label
@@ -133,7 +167,8 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     placeholder="Your name"
                   />
                 </div>
@@ -151,7 +186,8 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -167,11 +203,12 @@ const Contact: React.FC = () => {
                 <input
                   type="text"
                   id="subject"
-                  name="subject"
-                  value={formData.subject}
+                  name="title"
+                  value={formData.title}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="What's this about?"
                 />
               </div>
@@ -189,17 +226,36 @@ const Contact: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
+                  disabled={isSubmitting}
                   rows={5}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Tell me about your project or opportunity..."
                 />
               </div>
 
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
+                  <p className="text-green-400 text-center">
+                    ✅ Message sent successfully! I'll get back to you soon.
+                  </p>
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
+                  <p className="text-red-400 text-center">
+                    ❌ Failed to send message. Please try again or contact me directly.
+                  </p>
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
+                disabled={isSubmitting}
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
