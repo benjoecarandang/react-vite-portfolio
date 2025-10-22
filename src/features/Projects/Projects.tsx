@@ -39,6 +39,20 @@ const Projects: React.FC = () => {
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Hover Action Button - Only show if project has URL */}
+                  {project.projectUrl && (
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <a
+                        href={project.projectUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-110 shadow-xl"
+                      >
+                        View Project
+                      </a>
+                    </div>
+                  )}
                 </div>
                 
                 <div className="p-6">
@@ -60,30 +74,19 @@ const Projects: React.FC = () => {
                     ))}
                   </div>
                   
-                  <div className="flex gap-3">
-                    {project.projectUrl && (
-                      <a
-                        href={project.projectUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-full transition-all duration-300 hover:scale-105"
+                  {project.caseStudy && (
+                    <div className="flex gap-3">
+                      <Link
+                        to={`/case-study/${project.id}`}
+                        className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition-colors"
                       >
-                        Visit Project
-                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        Learn More
+                        <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
-                      </a>
-                    )}
-                    <Link
-                      to={`/case-study/${project.id}`}
-                      className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition-colors"
-                    >
-                      View Case Study
-                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  </div>
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

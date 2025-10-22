@@ -18,7 +18,7 @@ const About: React.FC = () => {
   ];
 
   const achievements = [
-    "6+ years of full-stack development experience",
+    "9+ years of full-stack development experience",
     "Led development of 15+ web applications",
     "Mentored 3 junior developers",
     "Reduced application load time by 40%",
@@ -151,7 +151,7 @@ const About: React.FC = () => {
             {/* Quick Stats */}
             <div className="mt-8 grid grid-cols-2 gap-4">
               <div className="bg-white/5 p-4 rounded-lg border border-white/10">
-                <div className="text-2xl font-bold text-blue-400">6+</div>
+                <div className="text-2xl font-bold text-blue-400">9+</div>
                 <div className="text-sm text-gray-400">Years Experience</div>
               </div>
               <div className="bg-white/5 p-4 rounded-lg border border-white/10">

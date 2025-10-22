@@ -69,15 +69,19 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ projects }) => {
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
-                  {/* Hover Action Button */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-                    <Link
-                      to={`/case-study/${project.id}`}
-                      className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform group-hover:scale-110 shadow-xl"
-                    >
-                      View Project
-                    </Link>
-                  </div>
+                  {/* Hover Action Button - Only show if project has URL */}
+                  {project.projectUrl && (
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                      <a
+                        href={project.projectUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform group-hover:scale-110 shadow-xl"
+                      >
+                        View Project
+                      </a>
+                    </div>
+                  )}
                 </div>
                 
                 {/* Project Content */}
@@ -116,15 +120,17 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ projects }) => {
                         </svg>
                       </a>
                     )}
-                    <Link
-                      to={`/case-study/${project.id}`}
-                      className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold transition-all duration-300 group/link text-lg"
-                    >
-                      <span className="mr-3">Learn More</span>
-                      <svg className="w-5 h-5 transform group-hover/link:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
+                    {project.caseStudy && (
+                      <Link
+                        to={`/case-study/${project.id}`}
+                        className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold transition-all duration-300 group/link text-lg"
+                      >
+                        <span className="mr-3">Learn More</span>
+                        <svg className="w-5 h-5 transform group-hover/link:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>

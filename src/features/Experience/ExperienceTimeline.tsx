@@ -10,7 +10,7 @@ const ExperienceTimeline = () => {
       <Container>
         <SectionHeadings tagline="Experiences" title="My Resume">
           <p>
-            Full Stack Web developer with 6+ years of hands-on experience in
+            Full Stack Web developer with 9+ years of hands-on experience in
             designing, developing, and implementing applications and solutions
             using range of technologies and programming languages.
           </p>

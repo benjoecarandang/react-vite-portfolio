@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom";
 import { Suspense, memo } from "react";
 import MainLayout from "@/layouts/MainLayout";
 import { routes } from "./RouteConfig";
+import Loading from "@/components/ui/Loading";
 
 const AppRoutes = memo(() => {
   const element = useRoutes([
@@ -12,7 +13,7 @@ const AppRoutes = memo(() => {
     }
   ]);
 
-  return <Suspense fallback={<div>Loading...</div>}>{element}</Suspense>;
+  return <Suspense fallback={<Loading />}>{element}</Suspense>;
 });
 
 export default AppRoutes;

@@ -3,6 +3,7 @@ import { lazy } from "react";
 const Home = lazy(() => import("@/features/Home/Home"));
 const CaseStudy = lazy(() => import("@/features/CaseStudy/CaseStudy"));
 const CaseStudyDetail = lazy(() => import("@/features/CaseStudy/CaseStudyDetail"));
+const NotFound = lazy(() => import("@/features/404/NotFound"));
 
 export const routes = [
   {
@@ -19,6 +20,6 @@ export const routes = [
   },
   {
     path: "*",
-    element: <div>404 - Page Not Found</div>
+    element: <NotFound />
   }
 ];
